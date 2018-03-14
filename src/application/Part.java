@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 public class Part {
 	
 	private int price, value, flap;
-	private String picNormal, picAbove;
+	private String pic;
 	private String name, description;
 	private boolean placed = false;
 	
@@ -17,10 +17,9 @@ public class Part {
 		this.flap = flap;
 	}
 	
-	public Part(String name, String description, int price, int value, int flap, String picNormal, String picAbove) {
+	public Part(String name, String description, int price, int value, int flap, String pic) {
 		this(name, description, price, value, flap);
-		this.picNormal = picNormal;
-		this.picAbove = picAbove;
+		this.pic = pic;
 	}
 	
 	public String getName() {
@@ -52,11 +51,11 @@ public class Part {
 	}
 	
 	public Image getPicAbove() {
-		return new Image("images/parts/above/" + picAbove);
+		return new Image("images/parts/above/" + pic + ".jpg", 1000, 800, true, false);
 	}
 	
 	public Image getPicNormal() {
-		return new Image("images/parts/normal/" + picNormal, 250, 250, true, false);
+		return new Image("images/parts/normal/" + pic + ".png", 250, 250, true, false);
 	}
 	
 	public void setPlaced(boolean placed) {

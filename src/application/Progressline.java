@@ -6,11 +6,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class Timeline extends GridPane{
-	
+public class Progressline extends GridPane {
+		
 	private Text[] progress = {new Text("Opdracht"), new Text("Schetsen"), new Text("Feedback"), new Text("Plannen"), new Text("Bouwen")};			
 	
-	public Timeline() {
+	public Progressline() {
 		
 		this.setHgap(80);
 		this.setAlignment(Pos.BASELINE_CENTER);
@@ -28,5 +28,4 @@ public class Timeline extends GridPane{
 			if(i != index)
 				progress[i].setFill(Color.SLATEGREY);
 	}
-
 }

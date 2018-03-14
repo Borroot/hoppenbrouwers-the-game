@@ -27,8 +27,16 @@ public class Client {
 		return description;
 	}
 	
+	public void setBudget(int budget) {
+		this.budget = budget;
+	}
+	
 	public int getBudget() {
 		return budget;
+	}
+	
+	public void setQuality(int quality) {
+		this.quality = quality;
 	}
 	
 	public int getQuality() {
