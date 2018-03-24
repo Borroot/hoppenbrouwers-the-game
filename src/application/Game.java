@@ -114,8 +114,6 @@ public class Game extends Application {
 		window.setHeight(1000);
 		window.setWidth(1500);
 		
-		//TODO: enable arduino
-		/*
 		boolean ready = false;
 		do {
 			try {
@@ -125,7 +123,7 @@ public class Game extends Application {
 				System.out.println("Arduino is not plugged in");
 				Thread.sleep(1000);
 			}
-		}while(!ready); */
+		}while(!ready); 
 		
 		window.setTitle("Hoppenbrouwers The Game");
 		window.show();
@@ -635,8 +633,7 @@ public class Game extends Application {
 	
 	private void buildingScreen() {
 		
-		//TODO: enable arduino
-		//com.closeAll();
+		com.closeAll();
 		
 		// create the middle area with all the boxes
 		GridPane boxPane = new GridPane();
@@ -687,16 +684,15 @@ public class Game extends Application {
 		txtBuildWith.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
 		tempGridPaneRight.add(txtBuildWith, 0, 0);
 		
-		//TODO: enable arduino
 		for(int i = 0; i < available.length; i++)
 			if(available[i]) {
 				if(i == 0) {
-					//com.open(buildingParts.get(i).getFlap());
+					com.open(buildingParts.get(i).getFlap());
 					boxes[buildingParts.get(i).getFlap()].setFill(Color.AQUAMARINE);
 				}else if(buildingParts.get(i - 1).getFlap() != buildingParts.get(i).getFlap()) {
-					//com.close(buildingParts.get(i - 1).getFlap());
+					com.close(buildingParts.get(i - 1).getFlap());
 					boxes[buildingParts.get(i - 1).getFlap()].setFill(Color.WHITE);
-					//com.open(buildingParts.get(i).getFlap());
+					com.open(buildingParts.get(i).getFlap());
 					boxes[buildingParts.get(i).getFlap()].setFill(Color.AQUAMARINE);
 				}
 				tempGridPaneRight.add(new ImageView(buildingParts.get(i).getPicNormal()), 0, 1);
@@ -730,8 +726,7 @@ public class Game extends Application {
 	
 	private void lastFeedbackScreen() {
 		
-		//TODO: enable arduino
-		//com.close(buildingParts.get(buildingParts.size() - 1).getFlap());
+		com.close(buildingParts.get(buildingParts.size() - 1).getFlap());
 		BorderPane lastFeedbackPane = new BorderPane();
 		
 		ImageView imgvwClient = new ImageView(new Image("/images/clients/feedback/" + client.getPicName() + "_Feedback_Correct.png", 700, 700, true, false));
@@ -766,8 +761,7 @@ public class Game extends Application {
 	
 	private void endScreen() {
 		
-		//TODO: enable arduino
-		//com.openAll();
+		com.openAll();
 		BorderPane endPane = new BorderPane();
 		
 		ImageView imgvwClient = new ImageView(new Image("/images/clients/feedback/" + client.getPicName() + "_Feedback_Correct.png", 700, 700, true, false));
@@ -792,11 +786,10 @@ public class Game extends Application {
 		bottomPane.setAlignment(Pos.CENTER_RIGHT);
 		VBox.setMargin(btSubmit, new Insets(30, 30, 30, 30));
 		
-		//TODO: enable arduino
 		btSubmit.setOnAction(e -> {
 			beginScreen();
 			resetVariables();
-			//com.closeAll();
+			com.closeAll();
 		});
 		
 		endPane.setBackground(background);
