@@ -10,7 +10,15 @@ public class SerialCommunication {
 	
 	public SerialCommunication(){
 		SerialPort ports[] = SerialPort.getCommPorts();
-		SerialPort port = ports[0];
+		
+		int index = -1;
+		for(int i = 0; i < ports.length; i++) 
+			if(ports[i].getSystemPortName().compareTo("COM6") == 0 || ports[i].getSystemPortName().compareTo("ttyACM0") == 0) {
+				index = i;
+				break;
+			}
+		
+		SerialPort port = ports[index];
 		
 		while(!port.openPort()) {
 			try {Thread.sleep(100); } catch(Exception e) {}
@@ -21,7 +29,7 @@ public class SerialCommunication {
 		port.setComPortTimeouts(SerialPort.TIMEOUT_SCANNER, 0, 0);
 		// wait after connecting, so the bootloader can finish
 		try {Thread.sleep(100); } catch(Exception e) {} 
-		output = new PrintWriter(ports[0].getOutputStream());
+		output = new PrintWriter(ports[index].getOutputStream());
 	}
 	
 	public void open(int index) {

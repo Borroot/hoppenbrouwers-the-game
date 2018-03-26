@@ -51,11 +51,11 @@ public class Part {
 	}
 	
 	public Image getPicAbove() {
-		return new Image("images/parts/above/" + pic + ".jpg", 1000, 800, true, false);
+		return new Image("/parts/above/" + pic + ".jpg", 1000, 800, true, false);
 	}
 	
 	public Image getPicNormal() {
-		return new Image("images/parts/normal/" + pic + ".png", 250, 250, true, false);
+		return new Image("/parts/normal/" + pic + ".png", 250, 250, true, false);
 	}
 	
 	public void setPlaced(boolean placed) {

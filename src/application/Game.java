@@ -111,8 +111,8 @@ public class Game extends Application {
 	public void start(Stage window) throws Exception {
 		
 		this.window = window;
-		window.setHeight(1000);
-		window.setWidth(1500);
+		window.setHeight(1080);
+		window.setWidth(1920);
 		
 		boolean ready = false;
 		do {
@@ -209,10 +209,10 @@ public class Game extends Application {
 		chooseClientScreenPane.setTop(txtChoose);
 		
 		// create the images for the clients
-		ImageView imgvwHannekeHuizen = new ImageView(new Image("images/clients/choose/Hanneke_Huizen.png"));
-		ImageView imgvwWimPol = new ImageView(new Image("images/clients/choose/Wim_Pol.png"));
-		ImageView imgvwDirkTeur = new ImageView(new Image("images/clients/choose/Dirk_Teur.png"));
-		ImageView imgvwSophieSmit = new ImageView(new Image("images/clients/choose/Sophie_Smit.png"));
+		ImageView imgvwHannekeHuizen = new ImageView(new Image("/clients/choose/Hanneke_Huizen.png"));
+		ImageView imgvwWimPol = new ImageView(new Image("/clients/choose/Wim_Pol.png"));
+		ImageView imgvwDirkTeur = new ImageView(new Image("/clients/choose/Dirk_Teur.png"));
+		ImageView imgvwSophieSmit = new ImageView(new Image("/clients/choose/Sophie_Smit.png"));
 		
 		// create the client buttons
 		GridPane clientsPane = new GridPane();
@@ -266,7 +266,7 @@ public class Game extends Application {
 		
 		// set the template picture and the explanationPane
 		templatePane = new StackPane();
-		Image imgTemplate = new Image("/images/template/template.jpg", 1000, 800, true, false);
+		Image imgTemplate = new Image("/template/template.jpg", 1000, 800, true, false);
 		ImageView imgvwTemplate = new ImageView(imgTemplate);
 		templatePane.getChildren().add(imgvwTemplate);
 		
@@ -441,7 +441,7 @@ public class Game extends Application {
 		BorderPane descriptionPane = new BorderPane();
 		
 		// show the picture of the client
-		ImageView imgvwClient = new ImageView(new Image("/images/clients/feedback/" + client.getPicName() + "_Standaart.png", 700, 700, true, false));
+		ImageView imgvwClient = new ImageView(new Image("/clients/feedback/" + client.getPicName() + "_Standaart.png", 700, 700, true, false));
 		descriptionPane.setLeft(imgvwClient);
 		BorderPane.setAlignment(imgvwClient, Pos.CENTER);
 		BorderPane.setMargin(imgvwClient, new Insets(20, 20, 20, 80));
@@ -481,9 +481,9 @@ public class Game extends Application {
 		// show the picture of the client
 		ImageView imgvwClient; 
 		if(sketchDone && priceGood() && qualityGood())
-			imgvwClient = new ImageView(new Image("/images/clients/feedback/" + client.getPicName() + "_Feedback_Correct.png", 700, 700, true, false));
+			imgvwClient = new ImageView(new Image("/clients/feedback/" + client.getPicName() + "_Feedback_Correct.png", 700, 700, true, false));
 		else 
-			imgvwClient = new ImageView(new Image("/images/clients/feedback/" + client.getPicName() + "_Feedback_Opnieuw.png", 700, 700, true, false));
+			imgvwClient = new ImageView(new Image("/clients/feedback/" + client.getPicName() + "_Feedback_Opnieuw.png", 700, 700, true, false));
 		
 		feedbackPane.setLeft(imgvwClient);
 		BorderPane.setAlignment(imgvwClient, Pos.CENTER);
@@ -549,7 +549,7 @@ public class Game extends Application {
 			for(int j = 0; j < client.getMissions()[i].getParts().length; j++) {
 				gridPane.add(new ImageView(client.getMissions()[i].getParts()[j].getPicNormal()), j + count, i);
 				if(j < client.getMissions()[i].getParts().length - 1) {
-					gridPane.add(new ImageView(new Image("/images/scheme/arrow.png")), j + 1 + count, i);
+					gridPane.add(new ImageView(new Image("/scheme/arrow.png")), j + 1 + count, i);
 					count++;
 				}
 			}
@@ -729,7 +729,7 @@ public class Game extends Application {
 		com.close(buildingParts.get(buildingParts.size() - 1).getFlap());
 		BorderPane lastFeedbackPane = new BorderPane();
 		
-		ImageView imgvwClient = new ImageView(new Image("/images/clients/feedback/" + client.getPicName() + "_Feedback_Correct.png", 700, 700, true, false));
+		ImageView imgvwClient = new ImageView(new Image("/clients/feedback/" + client.getPicName() + "_Feedback_Correct.png", 700, 700, true, false));
 		lastFeedbackPane.setLeft(imgvwClient);
 		BorderPane.setAlignment(imgvwClient, Pos.CENTER);
 		BorderPane.setMargin(imgvwClient, new Insets(20, 20, 20, 80));
@@ -764,7 +764,7 @@ public class Game extends Application {
 		com.openAll();
 		BorderPane endPane = new BorderPane();
 		
-		ImageView imgvwClient = new ImageView(new Image("/images/clients/feedback/" + client.getPicName() + "_Feedback_Correct.png", 700, 700, true, false));
+		ImageView imgvwClient = new ImageView(new Image("/clients/feedback/" + client.getPicName() + "_Feedback_Correct.png", 700, 700, true, false));
 		endPane.setLeft(imgvwClient);
 		BorderPane.setAlignment(imgvwClient, Pos.CENTER);
 		BorderPane.setMargin(imgvwClient, new Insets(20, 20, 20, 80));
