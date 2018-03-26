@@ -55,7 +55,7 @@ public class Game extends Application {
 	private Timeline animation = new Timeline(new KeyFrame(Duration.seconds(1), e -> timer()));
 	private boolean schemeInteractEntered = false;
 	
-	private SerialCommunication com;
+	//private SerialCommunication com;
 	private BorderPane buildingPane = new BorderPane();
 	private VBox bottomPane = new VBox(20);
 	private GridPane gridPaneRight = new GridPane(); // used for the picture of the part while building
@@ -114,7 +114,7 @@ public class Game extends Application {
 		window.setHeight(1080);
 		window.setWidth(1920);
 		
-		boolean ready = false;
+		/*boolean ready = false;
 		do {
 			try {
 				com = new SerialCommunication();
@@ -123,7 +123,7 @@ public class Game extends Application {
 				System.out.println("Arduino is not plugged in");
 				Thread.sleep(1000);
 			}
-		}while(!ready); 
+		}while(!ready); */
 		
 		window.setTitle("Hoppenbrouwers The Game");
 		window.show();
@@ -633,7 +633,7 @@ public class Game extends Application {
 	
 	private void buildingScreen() {
 		
-		com.closeAll();
+		//com.closeAll();
 		
 		// create the middle area with all the boxes
 		GridPane boxPane = new GridPane();
@@ -687,12 +687,12 @@ public class Game extends Application {
 		for(int i = 0; i < available.length; i++)
 			if(available[i]) {
 				if(i == 0) {
-					com.open(buildingParts.get(i).getFlap());
+					//com.open(buildingParts.get(i).getFlap());
 					boxes[buildingParts.get(i).getFlap()].setFill(Color.AQUAMARINE);
 				}else if(buildingParts.get(i - 1).getFlap() != buildingParts.get(i).getFlap()) {
-					com.close(buildingParts.get(i - 1).getFlap());
+					//com.close(buildingParts.get(i - 1).getFlap());
 					boxes[buildingParts.get(i - 1).getFlap()].setFill(Color.WHITE);
-					com.open(buildingParts.get(i).getFlap());
+					//com.open(buildingParts.get(i).getFlap());
 					boxes[buildingParts.get(i).getFlap()].setFill(Color.AQUAMARINE);
 				}
 				tempGridPaneRight.add(new ImageView(buildingParts.get(i).getPicNormal()), 0, 1);
@@ -726,7 +726,7 @@ public class Game extends Application {
 	
 	private void lastFeedbackScreen() {
 		
-		com.close(buildingParts.get(buildingParts.size() - 1).getFlap());
+		//com.close(buildingParts.get(buildingParts.size() - 1).getFlap());
 		BorderPane lastFeedbackPane = new BorderPane();
 		
 		ImageView imgvwClient = new ImageView(new Image("/clients/feedback/" + client.getPicName() + "_Feedback_Correct.png", 700, 700, true, false));
@@ -761,7 +761,7 @@ public class Game extends Application {
 	
 	private void endScreen() {
 		
-		com.openAll();
+		//com.openAll();
 		BorderPane endPane = new BorderPane();
 		
 		ImageView imgvwClient = new ImageView(new Image("/clients/feedback/" + client.getPicName() + "_Feedback_Correct.png", 700, 700, true, false));
@@ -789,7 +789,7 @@ public class Game extends Application {
 		btSubmit.setOnAction(e -> {
 			beginScreen();
 			resetVariables();
-			com.closeAll();
+			//com.closeAll();
 		});
 		
 		endPane.setBackground(background);
